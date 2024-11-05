@@ -20,7 +20,11 @@ const userSchema = new Schema({
     type: [{
         type: Schema.Types.ObjectId,
         ref: 'TypeDeposit'
-    }]
+    }],
+    idUser: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
 
 }, {
     timestamps: true,
