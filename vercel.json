@@ -1,18 +1,16 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "src/index.js",
-            "use": "@vercel/node"
-        }
+      {
+        "src": "src/index.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "src/index.js",
-            "headers": {
-                "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://vercel.live"
-            }
-        }
+      {
+        "src": "/(.*)",
+        "dest": "src/index.js"
+      }
     ]
-}
+  }
+  
