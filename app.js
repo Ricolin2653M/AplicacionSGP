@@ -13,7 +13,7 @@ app.use(express.json());
 
 //Ruta inicial
 app.get('/', (req, res) => {
-    res.send(messages.Welcome)
+    res.send("Hola, ruta base de la API")
 });
 
 app.use(
