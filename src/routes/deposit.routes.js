@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { authJwt } from "../middlewares";
+//import { authJwt } from "../middlewares";
 const router = Router();
 
-import * as depositCtrl from '../controllers/deposit.controller.js'
+//import * as depositCtrl from '../controllers/deposit.controller.js'
 
 //Ejemplo para establecer las rutas mediante sus metodos
 /*
