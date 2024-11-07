@@ -4,13 +4,21 @@ const router = Router();
 
 import * as expenseCtrl from '../controllers/expense.controller.js'
 
-//Ejemplo para establecer las rutas mediante sus metodos
-/*
-router.get('/',admisionCtrl.getAdmisiones);
-router.get('/:admisionId', admisionCtrl.getAdmisionById);
-router.post('/',[authJwt.verifyToken, authJwt.isAdmin], admisionCtrl.createAdmision);
-router.put('/:admisionId', [authJwt.verifyToken, authJwt.isAdmin],admisionCtrl.updateAdmision);
-router.delete('/:admisionId',[authJwt.verifyToken, authJwt.isAdmin], admisionCtrl.deleteAdmision);
- */
+
+// Create Expense
+router.post('/', expenseCtrl.createExpense);
+
+// Crear Gasto
+router.post('/', expenseCtrl.createExpense);
+
+// Obtener todos los gastos del usuario
+router.get('/', expenseCtrl.getExpenses);
+
+// Actualizar un gasto específico del usuario
+router.put('/:id', expenseCtrl.updateExpense);
+
+// Eliminar un gasto específico del usuario
+router.delete('/:id', expenseCtrl.deleteExpense);
+
 
 export default router;
