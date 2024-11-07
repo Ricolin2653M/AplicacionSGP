@@ -1,6 +1,5 @@
-import { Router } from "express";
-//import { authJwt } from "../middlewares";
-const router = Router();
+import express from 'express';
+const router = express.Router();
 
 import * as expenseCtrl from '../controllers/expense.controller.js'
 
