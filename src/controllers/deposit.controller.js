@@ -19,9 +19,9 @@ export const createDeposit = async (req, res) => {
         console.log(saveDeposit);
 
        
-        res.json({ message: "deposito registrada exitosamente" });
+        res.json({ message: "depósito registrada exitosamente" });
     } catch (error) {
-        console.error('Error al registrar deposito:', error);
+        console.error('Error al registrar depósito:', error);
         res.status(500).json({ message: "Error en el servidor" });
     }
 };
@@ -49,13 +49,13 @@ export const updateDeposit = async (req, res) => {
             req.body,
             { new: true }
         );
-        if (!updatedDeposit) return res.status(404).json({ message: 'deposito no encontrado o no pertenece al usuario' });
+        if (!updatedDeposit) return res.status(404).json({ message: 'depósito no encontrado o no pertenece al usuario' });
         res.status(200).json({
             message: 'Depósito actualizado correctamente',
             updatedDeposit
         });
     } catch (error) {
-        console.error('Error al actualizar deposito:', error);
+        console.error('Error al actualizar depósito:', error);
         res.status(400).json({ message: error.message });
     }
 };
@@ -65,10 +65,10 @@ export const deleteDeposit = async (req, res) => {
     try {
         const { id, idUser } = req.params; // Obtener id y idUser desde los parámetros
         const deletedDeposit = await Deposit.findOneAndDelete({ _id: id, idUser }); // Verificar que el deposito ed del usuaiio
-        if (!deletedDeposit) return res.status(404).json({ message: ' deposito no encontrado o no pertenece al usuario' });
-        res.status(200).json({ message: 'deposito eliminado' });
+        if (!deletedDeposit) return res.status(404).json({ message: ' depósito no encontrado o no pertenece al usuario' });
+        res.status(200).json({ message: 'depósito eliminado' });
     } catch (error) {
-        console.error('Error al eliminar deposito:', error);
+        console.error('Error al eliminar depósito:', error);
         res.status(500).json({ message: 'Error en el servidor' });
     }
 };
