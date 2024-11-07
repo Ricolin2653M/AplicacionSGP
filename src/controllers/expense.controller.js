@@ -6,8 +6,7 @@ import mongoose from 'mongoose';
 // Crear Gasto
 export const createExpense = async (req, res) => {
     try {
-        const { title, description, date, amount, type } = req.body;
-        const idUser = req.userId; // Suponiendo que el middleware de autenticación establece req.userId
+        const { title, description, date, amount, type, idUser } = req.body;
 
         const newExpense = new Expense({ title, description, date, amount, type, idUser });
         await newExpense.save();
@@ -17,6 +16,7 @@ export const createExpense = async (req, res) => {
     }
 };
 
+/*
 // Obtener todos los gastos del usuario autenticado
 export const getExpenses = async (req, res) => {
     try {
@@ -25,8 +25,8 @@ export const getExpenses = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-};
-
+};*/
+/*
 // Actualizar un gasto específico
 export const updateExpense = async (req, res) => {
     try {
@@ -41,8 +41,8 @@ export const updateExpense = async (req, res) => {
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
-};
-
+};*/
+/*
 // Eliminar un gasto específico
 export const deleteExpense = async (req, res) => {
     try {
@@ -53,4 +53,4 @@ export const deleteExpense = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-};
+};*/
