@@ -21,10 +21,10 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'TypeExpense'
     }],
-    idUser: [{
+    idUser: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }],
+    },
 
 }, {
     timestamps: true,
