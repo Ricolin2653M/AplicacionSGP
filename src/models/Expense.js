@@ -31,4 +31,4 @@ const userSchema = new Schema({
     versionKey: false
 });
 
-export default model('Deposit', userSchema);
+export default model('Expense', userSchema);
