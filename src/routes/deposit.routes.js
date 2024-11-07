@@ -1,16 +1,19 @@
-import { Router } from "express";
-//import { authJwt } from "../middlewares";
-const router = Router();
+import express from 'express';
+const router = express.Router();
+import * as depositCtrl from '../controllers/deposit.controller.js'
 
-//import * as depositCtrl from '../controllers/deposit.controller.js'
+// Crear deposito
+router.post('/', depositCtrl.createDeposit);
 
-//Ejemplo para establecer las rutas mediante sus metodos
-/*
-router.get('/',admisionCtrl.getAdmisiones);
-router.get('/:admisionId', admisionCtrl.getAdmisionById);
-router.post('/',[authJwt.verifyToken, authJwt.isAdmin], admisionCtrl.createAdmision);
-router.put('/:admisionId', [authJwt.verifyToken, authJwt.isAdmin],admisionCtrl.updateAdmision);
-router.delete('/:admisionId',[authJwt.verifyToken, authJwt.isAdmin], admisionCtrl.deleteAdmision);
- */
+// Obtener todos los depositos de un usuario específico
+router.get('/:idUser', depositCtrl.getDeposits);
+
+// Eliminar un deposito específico
+router.delete('/:idUser/:id', depositCtrl.deleteDeposit);
+
+// Actualizar un deposito específico
+router.put('/:idUser/:id', depositCtrl.updateDeposit);
+
+
 
 export default router;

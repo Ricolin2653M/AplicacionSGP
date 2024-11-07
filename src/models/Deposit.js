@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const userSchema = new Schema({
+const depositSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -26,9 +26,10 @@ const userSchema = new Schema({
         ref: 'User'
     }],
 
+
 }, {
     timestamps: true,
     versionKey: false
 });
 
-export default model('Deposit', userSchema);
+export default model('Deposits', depositSchema);
