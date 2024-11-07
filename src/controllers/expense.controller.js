@@ -6,15 +6,19 @@ import mongoose from 'mongoose';
 // Crear Gasto
 export const createExpense = async (req, res) => {
     try {
+        console.log("Petición recibida para crear un gasto:", req.body);
+        
         const { title, description, date, amount, type, idUser } = req.body;
 
         const newExpense = new Expense({ title, description, date, amount, type, idUser });
         await newExpense.save();
         res.status(201).json(newExpense);
     } catch (error) {
+        console.error("Error al crear gasto:", error);
         res.status(400).json({ error: error.message });
     }
 };
+
 
 /*
 // Obtener todos los gastos del usuario autenticado
