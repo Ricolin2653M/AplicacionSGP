@@ -4,20 +4,17 @@ const router = express.Router();
 import * as expenseCtrl from '../controllers/expense.controller.js'
 
 
-// Create Expense
+// Crear Gasto
 router.post('/', expenseCtrl.createExpense);
 
-// Crear Gasto
-//router.post('/', expenseCtrl.createExpense);
+// Obtener todos los gastos de un usuario específico
+router.get('/:idUser', expenseCtrl.getExpenses);
 
-// Obtener todos los gastos del usuario
-//router.get('/', expenseCtrl.getExpenses);
+// Actualizar un gasto específico
+router.put('/:idUser/:id', expenseCtrl.updateExpense);
 
-// Actualizar un gasto específico del usuario
-//router.put('/:id', expenseCtrl.updateExpense);
-
-// Eliminar un gasto específico del usuario
-//router.delete('/:id', expenseCtrl.deleteExpense);
+// Eliminar un gasto específico
+router.delete('/:idUser/:id', expenseCtrl.deleteExpense);
 
 
 export default router;

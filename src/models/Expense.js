@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const userSchema = new Schema({
+const expenseSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -31,4 +31,4 @@ const userSchema = new Schema({
     versionKey: false
 });
 
-export default model('Expense', userSchema);
+export default model('Expense', expenseSchema);
