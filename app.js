@@ -33,10 +33,6 @@ app.use('/api/deposit', depositRoutes);
 app.use('/api/expense', expenseRoutes);
 
 
-// Middleware para log de peticiones
-app.use((req, res, next) => {
-    console.log(`Petición recibida en ${req.method} ${req.url}`); // Log de la URL y método
-    next();
-});
+
 
 export default app;
