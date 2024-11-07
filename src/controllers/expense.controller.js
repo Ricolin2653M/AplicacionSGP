@@ -6,16 +6,23 @@ import mongoose from 'mongoose';
 // Crear Gasto
 export const createExpense = async (req, res) => {
     try {
-        console.log("Petición recibida para crear un gasto:", req.body);
-        
+        // Extraer datos de la petición
         const { title, description, date, amount, type, idUser } = req.body;
 
-        const newExpense = new Expense({ title, description, date, amount, type, idUser });
-        await newExpense.save();
-        res.status(201).json(newExpense);
+        // Crear nuevo usuario con encriptación de contraseña
+        const newExpense = new Expense({
+            title, description, date, amount, type, idUser
+        });
+
+        // Guardar el usuario en la base de datos
+        const saveExpense = await newExpense.save();
+        console.log(saveExpense);
+
+        // Responder con un mensaje de éxito
+        res.json({ message: "Expense registrada exitosamente" });
     } catch (error) {
-        console.error("Error al crear gasto:", error);
-        res.status(400).json({ error: error.message });
+        console.error('Error al registrar expense:', error);
+        res.status(500).json({ message: "Error en el servidor" });
     }
 };
 
