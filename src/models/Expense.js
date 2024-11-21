@@ -3,32 +3,33 @@ import { Schema, model } from "mongoose";
 const expenseSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
     },
     description: {
         type: String,
-        required: true
+        required: true,
     },
     date: {
         type: Date,
-        required: true
+        required: true,
     },
     amount: {
         type: Number,
-        required: true
+        required: true,
     },
-    type: [{
+    type: { // Relación uno a uno
         type: Schema.Types.ObjectId,
-        ref: 'TypeExpense'
-    }],
+        ref: 'TypeExpense',
+        required: true,
+    },
     idUser: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true,
     },
-
 }, {
     timestamps: true,
-    versionKey: false
+    versionKey: false,
 });
 
 export default model('Expense', expenseSchema);
