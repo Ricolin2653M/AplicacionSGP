@@ -17,19 +17,19 @@ const depositSchema = new Schema({
         type: Number,
         required: true
     },
-    type: [{
+    type: { // Relación uno a uno
         type: Schema.Types.ObjectId,
-        ref: 'TypeDeposit'
-    }],
-    idUser: [{
+        ref: 'TypeDeposit',
+        required: true
+    },
+    idUser: { // Relación uno a uno
         type: Schema.Types.ObjectId,
-        ref: 'User'
-    }],
-
-
+        ref: 'User',
+        required: true
+    },
 }, {
     timestamps: true,
     versionKey: false
 });
 
-export default model('Deposits', depositSchema);
+export default model('Deposit', depositSchema);
