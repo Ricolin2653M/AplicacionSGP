@@ -8,7 +8,6 @@ import TypeDeposit from '../models/TypeDeposit.js';
 import mongoose from 'mongoose';
 
 
-// Obtener todos los gastos por ID de usuario con resumen
 export const getExpensesGrafico = async (req, res) => {
     try {
         const { idUser } = req.params;
@@ -41,23 +40,18 @@ export const getExpensesGrafico = async (req, res) => {
             return acc;
         }, {});
 
-        // Convertir el resumen en un formato de objeto esperado
-        const summaryArray = Object.entries(typeSummary).map(([type, totalAmount]) => ({
-            type,
-            totalAmount,
-        }));
+        // Extraer los tipos y los totales en dos arreglos
+        const types = Object.keys(typeSummary); // Tipos
+        const totals = Object.values(typeSummary); // Totales
 
-        // Añadir el resumen como el último elemento
-        formattedExpenses.push({ typeSummary: summaryArray });
-
-        res.status(200).json(formattedExpenses);
+        // Responder con los tipos y los totales
+        res.status(200).json({ types, totals });
     } catch (error) {
         console.error('Error al obtener gastos:', error);
         res.status(500).json({ message: 'Error en el servidor' });
     }
 };
 
-// Obtener todos los depósitos por ID de usuario con resumen
 export const getDepositsGrafico = async (req, res) => {
     try {
         const { idUser } = req.params;
@@ -90,21 +84,19 @@ export const getDepositsGrafico = async (req, res) => {
             return acc;
         }, {});
 
-        // Convertir el resumen en un formato de objeto esperado
-        const summaryArray = Object.entries(typeSummary).map(([type, totalAmount]) => ({
-            type,
-            totalAmount,
-        }));
+        // Extraer los tipos y los totales en dos arreglos
+        const types = Object.keys(typeSummary); // Tipos
+        const totals = Object.values(typeSummary); // Totales
 
-        // Añadir el resumen como el último elemento
-        formattedDeposits.push({ typeSummary: summaryArray });
-
-        res.status(200).json(formattedDeposits);
+        // Responder con los tipos y los totales
+        res.status(200).json({ types, totals });
     } catch (error) {
         console.error('Error al obtener depósitos:', error);
         res.status(500).json({ message: 'Error en el servidor' });
     }
 };
+
+
 
 
 
